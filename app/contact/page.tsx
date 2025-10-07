@@ -1,12 +1,18 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, MessageSquare, Phone, MapPin, Send, Clock } from "lucide-react"
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, MessageSquare, Phone, MapPin, Send, Clock } from "lucide-react";
 
 export default function ContactPage() {
   const contactMethods = [
@@ -38,7 +44,7 @@ export default function ContactPage() {
       value: "123 Trading St, New York, NY 10001",
       action: "Get Directions",
     },
-  ]
+  ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
@@ -56,8 +62,8 @@ export default function ContactPage() {
               We're Here to Help
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Have questions about our courses or mentorship programs? Our team is ready to assist you on your trading
-              journey.
+              Have questions about our courses or mentorship programs? Our team
+              is ready to assist you on your trading journey.
             </p>
           </div>
 
@@ -74,9 +80,15 @@ export default function ContactPage() {
                     <method.icon className="w-7 h-7 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold mb-2">{method.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{method.description}</p>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {method.description}
+                  </p>
                   <p className="text-sm font-semibold mb-4">{method.value}</p>
-                  <Button variant="outline" size="sm" className="w-full hover:bg-primary/10 bg-transparent">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full hover:bg-primary/10 bg-transparent"
+                  >
                     {method.action}
                   </Button>
                 </CardContent>
@@ -89,14 +101,17 @@ export default function ContactPage() {
             <div className="animate-in fade-in slide-in-from-left-5 duration-700">
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                Fill out the form below and we'll get back to you within 24 hours. For urgent inquiries, please use our
-                live chat or call us directly.
+                Fill out the form below and we'll get back to you within 24
+                hours. For urgent inquiries, please use our live chat or call us
+                directly.
               </p>
 
               <Card className="border-border/50">
                 <CardHeader>
                   <CardTitle>Contact Form</CardTitle>
-                  <CardDescription>We'll respond as soon as possible</CardDescription>
+                  <CardDescription>
+                    We'll respond as soon as possible
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form className="space-y-6">
@@ -113,12 +128,20 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input id="email" type="email" placeholder="john@example.com" />
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="john@example.com"
+                      />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number (Optional)</Label>
-                      <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" />
+                      <Input
+                        id="phone"
+                        type="tel"
+                        placeholder="+1 (555) 123-4567"
+                      />
                     </div>
 
                     <div className="space-y-2">
@@ -128,7 +151,11 @@ export default function ContactPage() {
 
                     <div className="space-y-2">
                       <Label htmlFor="message">Message</Label>
-                      <Textarea id="message" placeholder="Tell us more about your inquiry..." rows={6} />
+                      <Textarea
+                        id="message"
+                        placeholder="Tell us more about your inquiry..."
+                        rows={6}
+                      />
                     </div>
 
                     <Button
@@ -154,12 +181,16 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Monday - Friday</span>
+                    <span className="text-muted-foreground">
+                      Monday - Friday
+                    </span>
                     <span className="font-semibold">9:00 AM - 6:00 PM EST</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Saturday</span>
-                    <span className="font-semibold">10:00 AM - 4:00 PM EST</span>
+                    <span className="font-semibold">
+                      10:00 AM - 4:00 PM EST
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Sunday</span>
@@ -171,27 +202,37 @@ export default function ContactPage() {
               <Card className="border-border/50">
                 <CardHeader>
                   <CardTitle>Frequently Asked Questions</CardTitle>
-                  <CardDescription>Quick answers to common questions</CardDescription>
+                  <CardDescription>
+                    Quick answers to common questions
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <h4 className="font-semibold mb-2">How quickly will I get a response?</h4>
+                    <h4 className="font-semibold mb-2">
+                      How quickly will I get a response?
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      We typically respond within 24 hours during business days. For urgent matters, use our live chat
-                      for immediate assistance.
+                      We typically respond within 24 hours during business days.
+                      For urgent matters, use our live chat for immediate
+                      assistance.
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Can I schedule a consultation?</h4>
+                    <h4 className="font-semibold mb-2">
+                      Can I schedule a consultation?
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      Yes! Mention your preferred time in the message, and we'll arrange a call or video meeting.
+                      Yes! Mention your preferred time in the message, and we'll
+                      arrange a call or video meeting.
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-2">Do you offer refunds?</h4>
+                    <h4 className="font-semibold mb-2">
+                      Do you offer refunds?
+                    </h4>
                     <p className="text-sm text-muted-foreground">
-                      We offer a 30-day money-back guarantee on all courses. Contact us for more details about our
-                      refund policy.
+                      We offer a 30-day money-back guarantee on all courses.
+                      Contact us for more details about our refund policy.
                     </p>
                   </div>
                 </CardContent>
@@ -212,5 +253,5 @@ export default function ContactPage() {
 
       <Footer />
     </main>
-  )
+  );
 }

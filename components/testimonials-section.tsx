@@ -1,9 +1,9 @@
-"use client"
-import { Card } from "@/components/ui/card"
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
+"use client";
+import { Card } from "@/components/ui/card";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
@@ -54,14 +54,14 @@ const testimonials = [
     rating: 5,
     initials: "JW",
   },
-]
+];
 
 export function TestimonialsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [visibleCards, setVisibleCards] = useState<number[]>([])
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -70,70 +70,75 @@ export function TestimonialsSection() {
           if (entry.isIntersecting) {
             testimonials.forEach((_, index) => {
               setTimeout(() => {
-                setVisibleCards((prev) => [...prev, index])
-              }, index * 100)
-            })
-            observer.disconnect()
+                setVisibleCards((prev) => [...prev, index]);
+              }, index * 100);
+            });
+            observer.disconnect();
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      handleNext()
-    }, 4000)
+      handleNext();
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, currentIndex])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, currentIndex]);
 
   const scrollToCard = (index: number) => {
-    if (!scrollRef.current) return
-    const cardWidth = scrollRef.current.offsetWidth
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.offsetWidth;
     scrollRef.current.scrollTo({
       left: index * cardWidth,
       behavior: "smooth",
-    })
-  }
+    });
+  };
 
   const handlePrevious = () => {
-    setIsAutoPlaying(false)
-    const newIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1
-    setCurrentIndex(newIndex)
-    scrollToCard(newIndex)
-  }
+    setIsAutoPlaying(false);
+    const newIndex =
+      currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    scrollToCard(newIndex);
+  };
 
   const handleNext = () => {
-    setIsAutoPlaying(false)
-    const newIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1
-    setCurrentIndex(newIndex)
-    scrollToCard(newIndex)
-  }
+    setIsAutoPlaying(false);
+    const newIndex =
+      currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    scrollToCard(newIndex);
+  };
 
   const handleScroll = () => {
-    if (!scrollRef.current) return
-    const cardWidth = scrollRef.current.offsetWidth
-    const scrollLeft = scrollRef.current.scrollLeft
-    const newIndex = Math.round(scrollLeft / cardWidth)
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.offsetWidth;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const newIndex = Math.round(scrollLeft / cardWidth);
     if (newIndex !== currentIndex) {
-      setCurrentIndex(newIndex)
-      setIsAutoPlaying(false)
+      setCurrentIndex(newIndex);
+      setIsAutoPlaying(false);
     }
-  }
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 bg-background relative overflow-hidden border-t border-border">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(17,120,98,0.03),transparent_50%)]" />
+    <section
+      ref={sectionRef}
+      className="py-24 lg:py-32 bg-background relative overflow-hidden border-t border-border"
+    >
+      <div className="absolute inset-0" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -145,7 +150,8 @@ export function TestimonialsSection() {
             Trusted by traders <span className="text-primary">worldwide</span>
           </h2>
           <p className="text-lg text-muted-foreground text-pretty animate-fade-in-up animation-delay-200">
-            Join thousands of successful traders who have transformed their financial future with Trading Pride.
+            Join thousands of successful traders who have transformed their
+            financial future with Trading Pride.
           </p>
         </div>
 
@@ -179,14 +185,20 @@ export function TestimonialsSection() {
             }}
           >
             {testimonials.map((testimonial, index) => (
-              <div key={testimonial.name} className="flex-shrink-0 w-full snap-center">
+              <div
+                key={testimonial.name}
+                className="flex-shrink-0 w-full snap-center"
+              >
                 <Card
                   className={`p-8 lg:p-10 bg-card/50 backdrop-blur-sm border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden ${
-                    visibleCards.includes(index) ? "animate-fade-in-up" : "opacity-0"
+                    visibleCards.includes(index)
+                      ? "animate-fade-in-up"
+                      : "opacity-0"
                   }`}
                   style={{
                     animationDelay: `${index * 100}ms`,
-                    transform: currentIndex === index ? "scale(1)" : "scale(0.95)",
+                    transform:
+                      currentIndex === index ? "scale(1)" : "scale(0.95)",
                     opacity: currentIndex === index ? 1 : 0.6,
                     transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   }}
@@ -196,7 +208,8 @@ export function TestimonialsSection() {
                   <div
                     className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                      background: "linear-gradient(90deg, transparent, rgba(17, 120, 98, 0.3), transparent)",
+                      background:
+                        "linear-gradient(90deg, transparent, var(--color-primary), transparent)",
                       animation: "shimmer 2s infinite",
                     }}
                   />
@@ -229,7 +242,9 @@ export function TestimonialsSection() {
                         <div className="font-semibold text-lg text-card-foreground group-hover:text-primary transition-colors duration-300">
                           {testimonial.name}
                         </div>
-                        <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                        <div className="text-sm text-muted-foreground">
+                          {testimonial.role}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -243,9 +258,9 @@ export function TestimonialsSection() {
               <button
                 key={index}
                 onClick={() => {
-                  setIsAutoPlaying(false)
-                  setCurrentIndex(index)
-                  scrollToCard(index)
+                  setIsAutoPlaying(false);
+                  setCurrentIndex(index);
+                  scrollToCard(index);
                 }}
                 className={`h-2 rounded-full transition-all duration-500 ${
                   currentIndex === index
@@ -259,5 +274,5 @@ export function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

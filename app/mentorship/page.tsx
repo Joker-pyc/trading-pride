@@ -1,10 +1,25 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Users, Video, Award, Target, Sparkles, CheckCircle2, Star } from "lucide-react"
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Users,
+  Video,
+  Award,
+  Target,
+  Sparkles,
+  CheckCircle2,
+  Star,
+} from "lucide-react";
 
 export default function MentorshipPage() {
   const mentors = [
@@ -26,7 +41,11 @@ export default function MentorshipPage() {
       rating: "4.9",
       students: "380+",
       image: "/professional-black-man-trader.jpg",
-      achievements: ["Ex-Goldman Sachs", "CFA Charterholder", "Best-Selling Author"],
+      achievements: [
+        "Ex-Goldman Sachs",
+        "CFA Charterholder",
+        "Best-Selling Author",
+      ],
     },
     {
       name: "Elena Rodriguez",
@@ -38,7 +57,7 @@ export default function MentorshipPage() {
       image: "/professional-latina-woman-programmer.jpg",
       achievements: ["MIT Graduate", "Hedge Fund Manager", "Tech Innovator"],
     },
-  ]
+  ];
 
   const mentorshipPlans = [
     {
@@ -89,7 +108,7 @@ export default function MentorshipPage() {
       icon: Award,
       popular: false,
     },
-  ]
+  ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
@@ -107,14 +126,17 @@ export default function MentorshipPage() {
               Learn from Elite Trading Mentors
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Get personalized guidance from experienced traders who have mastered the markets. Accelerate your journey
-              with proven strategies and real-world insights.
+              Get personalized guidance from experienced traders who have
+              mastered the markets. Accelerate your journey with proven
+              strategies and real-world insights.
             </p>
           </div>
 
           {/* Mentors Grid */}
           <div className="mb-24">
-            <h2 className="text-3xl font-bold text-center mb-12">Meet Your Mentors</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Meet Your Mentors
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {mentors.map((mentor, index) => (
                 <Card
@@ -126,7 +148,10 @@ export default function MentorshipPage() {
                     <div className="relative w-32 h-32 mx-auto mb-4">
                       <div className="absolute inset-0 bg-gradient-to-r from-primary to-chart-2 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
                       <Avatar className="relative w-32 h-32 border-4 border-background group-hover:scale-105 transition-transform duration-300">
-                        <AvatarImage src={mentor.image || "/placeholder.svg"} alt={mentor.name} />
+                        <AvatarImage
+                          src={mentor.image || "/placeholder.svg"}
+                          alt={mentor.name}
+                        />
                         <AvatarFallback className="text-2xl">
                           {mentor.name
                             .split(" ")
@@ -135,7 +160,9 @@ export default function MentorshipPage() {
                         </AvatarFallback>
                       </Avatar>
                     </div>
-                    <CardTitle className="text-2xl mb-1">{mentor.name}</CardTitle>
+                    <CardTitle className="text-2xl mb-1">
+                      {mentor.name}
+                    </CardTitle>
                     <CardDescription className="text-base font-semibold text-primary mb-2">
                       {mentor.role}
                     </CardDescription>
@@ -152,18 +179,31 @@ export default function MentorshipPage() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <div className="text-sm font-semibold mb-2">Specialty</div>
-                      <div className="text-sm text-muted-foreground">{mentor.specialty}</div>
+                      <div className="text-sm font-semibold mb-2">
+                        Specialty
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {mentor.specialty}
+                      </div>
                     </div>
                     <div>
-                      <div className="text-sm font-semibold mb-2">Experience</div>
-                      <div className="text-sm text-muted-foreground">{mentor.experience}</div>
+                      <div className="text-sm font-semibold mb-2">
+                        Experience
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {mentor.experience}
+                      </div>
                     </div>
                     <div>
-                      <div className="text-sm font-semibold mb-2">Achievements</div>
+                      <div className="text-sm font-semibold mb-2">
+                        Achievements
+                      </div>
                       <div className="space-y-1">
                         {mentor.achievements.map((achievement) => (
-                          <div key={achievement} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div
+                            key={achievement}
+                            className="flex items-center gap-2 text-sm text-muted-foreground"
+                          >
                             <Award className="w-3 h-3 text-primary flex-shrink-0" />
                             {achievement}
                           </div>
@@ -183,9 +223,12 @@ export default function MentorshipPage() {
 
           {/* Mentorship Plans */}
           <div>
-            <h2 className="text-3xl font-bold text-center mb-4">Choose Your Path</h2>
+            <h2 className="text-3xl font-bold text-center mb-4">
+              Choose Your Path
+            </h2>
             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Select the mentorship program that aligns with your goals and commitment level
+              Select the mentorship program that aligns with your goals and
+              commitment level
             </p>
             <div className="grid md:grid-cols-3 gap-8">
               {mentorshipPlans.map((plan, index) => (
@@ -209,16 +252,25 @@ export default function MentorshipPage() {
                       <plan.icon className="w-7 h-7 text-primary-foreground" />
                     </div>
                     <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
-                    <CardDescription className="text-base leading-relaxed mb-4">{plan.description}</CardDescription>
+                    <CardDescription className="text-base leading-relaxed mb-4">
+                      {plan.description}
+                    </CardDescription>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                      <span className="text-muted-foreground">{plan.period}</span>
+                      <span className="text-4xl font-bold text-primary">
+                        {plan.price}
+                      </span>
+                      <span className="text-muted-foreground">
+                        {plan.period}
+                      </span>
                     </div>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       {plan.features.map((feature) => (
-                        <div key={feature} className="flex items-start gap-2 text-sm">
+                        <div
+                          key={feature}
+                          className="flex items-start gap-2 text-sm"
+                        >
                           <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </div>
@@ -246,5 +298,5 @@ export default function MentorshipPage() {
 
       <Footer />
     </main>
-  )
+  );
 }
