@@ -1,9 +1,16 @@
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BookOpen,
   Clock,
@@ -16,7 +23,7 @@ import {
   Award,
   CheckCircle2,
   Sparkles,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function CoursesPage() {
   const courseCategories = [
@@ -26,25 +33,37 @@ export default function CoursesPage() {
       courses: [
         {
           title: "Trading Fundamentals",
-          description: "Master the basics of trading, market analysis, and risk management",
+          description:
+            "Master the basics of trading, market analysis, and risk management",
           price: "$299",
           duration: "8 weeks",
           students: "2,450",
           rating: "4.9",
           level: "Beginner",
           icon: BookOpen,
-          features: ["Market basics", "Chart reading", "Risk management", "Trading psychology"],
+          features: [
+            "Market basics",
+            "Chart reading",
+            "Risk management",
+            "Trading psychology",
+          ],
         },
         {
           title: "Technical Analysis 101",
-          description: "Learn to read charts, identify patterns, and make informed decisions",
+          description:
+            "Learn to read charts, identify patterns, and make informed decisions",
           price: "$349",
           duration: "10 weeks",
           students: "1,890",
           rating: "4.8",
           level: "Beginner",
           icon: LineChart,
-          features: ["Chart patterns", "Indicators", "Trend analysis", "Support & resistance"],
+          features: [
+            "Chart patterns",
+            "Indicators",
+            "Trend analysis",
+            "Support & resistance",
+          ],
         },
       ],
     },
@@ -54,14 +73,20 @@ export default function CoursesPage() {
       courses: [
         {
           title: "Advanced Technical Strategies",
-          description: "Deep dive into advanced charting techniques and trading strategies",
+          description:
+            "Deep dive into advanced charting techniques and trading strategies",
           price: "$499",
           duration: "12 weeks",
           students: "1,230",
           rating: "4.9",
           level: "Intermediate",
           icon: BarChart3,
-          features: ["Advanced patterns", "Multi-timeframe analysis", "Volume analysis", "Strategy building"],
+          features: [
+            "Advanced patterns",
+            "Multi-timeframe analysis",
+            "Volume analysis",
+            "Strategy building",
+          ],
         },
         {
           title: "Options Trading Mastery",
@@ -72,7 +97,12 @@ export default function CoursesPage() {
           rating: "5.0",
           level: "Intermediate",
           icon: TrendingUp,
-          features: ["Options basics", "Strategies", "Greeks", "Risk management"],
+          features: [
+            "Options basics",
+            "Strategies",
+            "Greeks",
+            "Risk management",
+          ],
         },
       ],
     },
@@ -89,7 +119,12 @@ export default function CoursesPage() {
           rating: "4.9",
           level: "Advanced",
           icon: Zap,
-          features: ["Python programming", "Backtesting", "API integration", "Live deployment"],
+          features: [
+            "Python programming",
+            "Backtesting",
+            "API integration",
+            "Live deployment",
+          ],
         },
         {
           title: "Professional Day Trading",
@@ -100,11 +135,16 @@ export default function CoursesPage() {
           rating: "5.0",
           level: "Advanced",
           icon: Award,
-          features: ["Scalping strategies", "Market making", "Risk management", "Live trading room"],
+          features: [
+            "Scalping strategies",
+            "Market making",
+            "Risk management",
+            "Live trading room",
+          ],
         },
       ],
     },
-  ]
+  ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
@@ -122,8 +162,8 @@ export default function CoursesPage() {
               Master Trading with Expert-Led Courses
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              From beginner to professional trader. Learn at your own pace with our comprehensive curriculum designed by
-              industry experts.
+              From beginner to professional trader. Learn at your own pace with
+              our comprehensive curriculum designed by industry experts.
             </p>
           </div>
 
@@ -143,7 +183,9 @@ export default function CoursesPage() {
                 <CardContent className="pt-6">
                   <stat.icon className="w-8 h-8 mx-auto mb-3 text-primary" />
                   <div className="text-3xl font-bold mb-1">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -164,7 +206,11 @@ export default function CoursesPage() {
             </TabsList>
 
             {courseCategories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="mt-0">
+              <TabsContent
+                key={category.id}
+                value={category.id}
+                className="mt-0"
+              >
                 <div className="grid md:grid-cols-2 gap-8">
                   {category.courses.map((course, index) => (
                     <Card
@@ -184,7 +230,9 @@ export default function CoursesPage() {
                         <CardTitle className="text-2xl mb-2 group-hover:text-primary transition-colors">
                           {course.title}
                         </CardTitle>
-                        <CardDescription className="text-base leading-relaxed">{course.description}</CardDescription>
+                        <CardDescription className="text-base leading-relaxed">
+                          {course.description}
+                        </CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="flex items-center gap-6 mb-6 text-sm text-muted-foreground">
@@ -203,7 +251,10 @@ export default function CoursesPage() {
                         </div>
                         <div className="space-y-2 mb-6">
                           {course.features.map((feature) => (
-                            <div key={feature} className="flex items-center gap-2 text-sm">
+                            <div
+                              key={feature}
+                              className="flex items-center gap-2 text-sm"
+                            >
                               <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                               <span>{feature}</span>
                             </div>
@@ -212,8 +263,12 @@ export default function CoursesPage() {
                       </CardContent>
                       <CardFooter className="flex items-center justify-between border-t border-border/50 pt-6">
                         <div>
-                          <div className="text-3xl font-bold text-primary">{course.price}</div>
-                          <div className="text-xs text-muted-foreground">One-time payment</div>
+                          <div className="text-3xl font-bold text-primary">
+                            {course.price}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            One-time payment
+                          </div>
                         </div>
                         <Button
                           size="lg"
@@ -233,5 +288,5 @@ export default function CoursesPage() {
 
       <Footer />
     </main>
-  )
+  );
 }

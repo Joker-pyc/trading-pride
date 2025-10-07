@@ -1,23 +1,28 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   React.useEffect(() => {
     if (mounted) {
-      console.log("[v0] Theme state - theme:", theme, "resolvedTheme:", resolvedTheme)
+      console.log(
+        "[v0] Theme state - theme:",
+        theme,
+        "resolvedTheme:",
+        resolvedTheme
+      );
     }
-  }, [mounted, theme, resolvedTheme])
+  }, [mounted, theme, resolvedTheme]);
 
   if (!mounted) {
     return (
@@ -26,34 +31,41 @@ export function ThemeToggle() {
         size="icon"
         className="w-9 h-9 rounded-xl transition-all duration-500"
         style={{
-          boxShadow: "3px 3px 8px rgba(17, 120, 98, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5)",
+          background: "var(--color-gradient-start)",
+          boxShadow:
+            "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
         }}
       >
         <Sun className="h-4 w-4" />
         <span className="sr-only">Toggle theme</span>
       </Button>
-    )
+    );
   }
 
-  const currentTheme = theme || "light"
-  const isDark = currentTheme === "dark"
+  const currentTheme = theme || "light";
+  const isDark = currentTheme === "dark";
 
   const handleToggle = () => {
-    const newTheme = isDark ? "light" : "dark"
-    console.log("[v0] Toggling theme. Current:", currentTheme, "New:", newTheme)
-    setTheme(newTheme)
-  }
+    const newTheme = isDark ? "light" : "dark";
+    console.log(
+      "[v0] Toggling theme. Current:",
+      currentTheme,
+      "New:",
+      newTheme
+    );
+    setTheme(newTheme);
+  };
 
   return (
     <Button
       variant="ghost"
       size="icon"
       onClick={handleToggle}
-      className="w-9 h-9 rounded-xl transition-all duration-500 hover:bg-accent hover:scale-105"
+      className="w-9 h-9 rounded-xl transition-all duration-500 hover:scale-105"
       style={{
-        boxShadow: isDark
-          ? "3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.05)"
-          : "3px 3px 8px rgba(17, 120, 98, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5)",
+        background: "var(--color-gradient-start)",
+        boxShadow:
+          "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
       }}
     >
       {isDark ? (
@@ -63,5 +75,5 @@ export function ThemeToggle() {
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>
-  )
+  );
 }

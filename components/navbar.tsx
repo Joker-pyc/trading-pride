@@ -35,27 +35,30 @@ export function Navbar() {
         className={cn(
           "fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ease-out w-[92%] max-w-6xl",
           isScrolled
-            ? "shadow-[8px_8px_20px_rgba(17,120,98,0.15),-8px_-8px_20px_rgba(255,255,255,0.7)] dark:shadow-[8px_8px_20px_rgba(0,0,0,0.3),-8px_-8px_20px_rgba(17,120,98,0.1)]"
-            : "shadow-[6px_6px_16px_rgba(17,120,98,0.12),-6px_-6px_16px_rgba(255,255,255,0.6)] dark:shadow-[6px_6px_16px_rgba(0,0,0,0.2),-6px_-6px_16px_rgba(17,120,98,0.08)]"
+            ? "shadow-[8px_8px_20px_var(--color-shadow-hover),-8px_-8px_20px_var(--color-surface)] dark:shadow-[8px_8px_20px_var(--color-shadow),-8px_-8px_20px_var(--color-shadow)]"
+            : "shadow-[6px_6px_16px_var(--color-shadow),-6px_-6px_16px_var(--color-surface)] dark:shadow-[6px_6px_16px_var(--color-shadow),-6px_-6px_16px_var(--color-shadow)]"
         )}
         style={{
-          background: "rgba(17, 120, 98, 0.08)",
+          background: "var(--color-gradient-start)",
           backdropFilter: "blur(20px)",
           borderRadius: "24px",
-          border: "1px solid rgba(17, 120, 98, 0.15)",
+          border: "1px solid var(--color-border)",
         }}
       >
         <div className="px-6 sm:px-8 lg:px-10">
           <div className="flex items-center justify-between h-14 lg:h-16">
-            <Link href="/" className="flex items-center gap-3 group relative">
+            <Link
+              href="/"
+              className="flex items-center gap-2 sm:gap-3 group relative"
+            >
               <img
-                src="/logo.ico"
+                src="/logo.png"
                 alt="Trading Pride Logo"
                 width={32}
                 height={32}
-                className="w-8 h-8 group-hover:scale-105 transition-all duration-500"
+                className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 aspect-square object-contain group-hover:scale-105 transition-all duration-500"
               />
-              <span className="text-base lg:text-lg font-bold text-foreground tracking-tight font-brand">
+              <span className="text-sm sm:text-base lg:text-lg font-bold text-foreground tracking-tight font-brand">
                 Trading Pride
               </span>
             </Link>
@@ -76,9 +79,9 @@ export function Navbar() {
                     style={
                       isActive
                         ? {
-                            background: "rgba(17, 120, 98, 0.08)",
+                            background: "var(--color-gradient-start)",
                             boxShadow:
-                              "inset 2px 2px 5px rgba(17, 120, 98, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.4)",
+                              "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                           }
                         : {}
                     }
@@ -96,8 +99,9 @@ export function Navbar() {
                 size="default"
                 className="font-medium transition-all duration-500 rounded-xl hover:bg-transparent"
                 style={{
+                  background: "var(--color-gradient-start)",
                   boxShadow:
-                    "3px 3px 8px rgba(17, 120, 98, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5)",
+                    "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                 }}
               >
                 Login
@@ -106,9 +110,9 @@ export function Navbar() {
                 size="default"
                 className="font-medium transition-all duration-500 text-white relative overflow-hidden group rounded-xl border-0"
                 style={{
-                  background: "rgba(17, 120, 98, 0.85)",
+                  background: "var(--color-primary)",
                   boxShadow:
-                    "4px 4px 12px rgba(17, 120, 98, 0.3), -2px -2px 8px rgba(255, 255, 255, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3)",
+                    "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-1.5">
@@ -123,8 +127,9 @@ export function Navbar() {
               className="lg:hidden p-2 text-foreground rounded-xl transition-all duration-500 hover:scale-105"
               aria-label="Toggle menu"
               style={{
+                background: "var(--color-gradient-start)",
                 boxShadow:
-                  "3px 3px 8px rgba(17, 120, 98, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5)",
+                  "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
               }}
             >
               {isMobileMenuOpen ? (
@@ -141,18 +146,18 @@ export function Navbar() {
         <div className="lg:hidden fixed inset-0 z-40 pt-24 animate-in fade-in slide-in-from-top-5 duration-500">
           <div
             className="absolute inset-0 backdrop-blur-xl"
-            style={{ background: "rgba(17, 120, 98, 0.05)" }}
+            style={{ background: "var(--color-gradient-start)" }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
           <div className="relative container mx-auto px-4">
             <nav
               className="rounded-2xl p-5 flex flex-col gap-1.5 animate-in slide-in-from-top-10 duration-500"
               style={{
-                background: "rgba(17, 120, 98, 0.08)",
+                background: "var(--color-gradient-start)",
                 backdropFilter: "blur(20px)",
-                border: "1px solid rgba(17, 120, 98, 0.15)",
+                border: "1px solid var(--color-border)",
                 boxShadow:
-                  "8px 8px 20px rgba(17, 120, 98, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.7)",
+                  "8px 8px 20px var(--color-shadow-hover), -8px -8px 20px var(--color-surface)",
               }}
             >
               {navLinks.map((link, index) => {
@@ -170,9 +175,9 @@ export function Navbar() {
                     style={
                       isActive
                         ? {
-                            background: "rgba(17, 120, 98, 0.08)",
+                            background: "var(--color-gradient-start)",
                             boxShadow:
-                              "inset 2px 2px 5px rgba(17, 120, 98, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.4)",
+                              "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                             animationDelay: `${index * 50}ms`,
                           }
                         : { animationDelay: `${index * 50}ms` }
@@ -183,7 +188,7 @@ export function Navbar() {
                   </Link>
                 );
               })}
-              <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-[rgba(17,120,98,0.15)]">
+              <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-border">
                 <div className="flex items-center justify-between px-4 py-2">
                   <span className="text-sm font-medium text-muted-foreground">
                     Theme
@@ -193,10 +198,11 @@ export function Navbar() {
                 <Button
                   variant="outline"
                   size="default"
-                  className="w-full font-medium transition-all duration-500 bg-transparent rounded-xl border-[rgba(17,120,98,0.2)]"
+                  className="w-full font-medium transition-all duration-500 bg-transparent rounded-xl border-border"
                   style={{
+                    background: "var(--color-gradient-start)",
                     boxShadow:
-                      "3px 3px 8px rgba(17, 120, 98, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5)",
+                      "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                   }}
                 >
                   Login
@@ -205,9 +211,9 @@ export function Navbar() {
                   size="default"
                   className="w-full font-medium transition-all duration-500 rounded-xl border-0 text-white"
                   style={{
-                    background: "rgba(17, 120, 98, 0.85)",
+                    background: "var(--color-primary)",
                     boxShadow:
-                      "4px 4px 12px rgba(17, 120, 98, 0.3), -2px -2px 8px rgba(255, 255, 255, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.3)",
+                      "inset 2px 2px 5px var(--color-shadow), inset -2px -2px 5px var(--color-surface)",
                   }}
                 >
                   <span className="flex items-center gap-1.5">

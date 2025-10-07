@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Check, ArrowRight, Sparkles } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Check, ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const courses = [
   {
@@ -53,51 +53,63 @@ const courses = [
     ],
     popular: false,
   },
-]
+];
 
 export function CoursesSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true)
-            observer.disconnect()
+            setIsVisible(true);
+            observer.disconnect();
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section ref={sectionRef} id="courses" className="py-24 lg:py-32 relative bg-gray-50">
+    <section
+      ref={sectionRef}
+      id="courses"
+      className="py-24 lg:py-32 relative bg-background"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6 transition-all duration-700 ${isVisible ? "animate-fade-in-down" : "opacity-0"}`}
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-6 transition-all duration-700 ${
+              isVisible ? "animate-fade-in-down" : "opacity-0"
+            }`}
           >
             Flexible Pricing
           </div>
           <h2
-            className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance transition-all duration-700 animation-delay-100 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+            className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance transition-all duration-700 animation-delay-100 ${
+              isVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
           >
-            Choose the perfect plan for your <span className="text-primary">trading goals</span>
+            Choose the perfect plan for your{" "}
+            <span className="text-primary">trading goals</span>
           </h2>
           <p
-            className={`text-lg text-muted-foreground text-pretty transition-all duration-700 animation-delay-200 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+            className={`text-lg text-muted-foreground text-pretty transition-all duration-700 animation-delay-200 ${
+              isVisible ? "animate-fade-in-up" : "opacity-0"
+            }`}
           >
-            Start with any plan and upgrade as you grow. All plans include a 14-day money-back guarantee.
+            Start with any plan and upgrade as you grow. All plans include a
+            14-day money-back guarantee.
           </p>
         </div>
 
@@ -106,7 +118,9 @@ export function CoursesSection() {
             <Card
               key={index}
               className={`p-8 relative vibrant-border card-3d cursor-pointer group ${
-                course.popular ? "border-primary shadow-2xl lg:scale-105 bg-card" : "bg-card"
+                course.popular
+                  ? "border-primary shadow-2xl lg:scale-105 bg-card"
+                  : "bg-card"
               } ${isVisible ? "animate-scale-in" : "opacity-0"}`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
@@ -124,7 +138,9 @@ export function CoursesSection() {
                   <h3 className="text-2xl font-bold mb-2 text-card-foreground group-hover:text-primary transition-colors duration-300">
                     {course.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm">{course.description}</p>
+                  <p className="text-muted-foreground text-sm">
+                    {course.description}
+                  </p>
                 </div>
 
                 <div className="mb-8">
@@ -132,7 +148,9 @@ export function CoursesSection() {
                     <span className="text-5xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {course.price}
                     </span>
-                    <span className="text-muted-foreground">{course.period}</span>
+                    <span className="text-muted-foreground">
+                      {course.period}
+                    </span>
                   </div>
                 </div>
 
@@ -165,5 +183,5 @@ export function CoursesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

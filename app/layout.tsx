@@ -64,6 +64,15 @@ export const metadata: Metadata = {
   description:
     "Master the markets with expert mentorship from Mr. Sarvendra Shrivastava. Professional trading education for Indian traders.",
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.ico", sizes: "16x16", type: "image/x-icon" },
+      { url: "/favicon-32x32.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

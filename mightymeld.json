@@ -1,0 +1,20 @@
+{
+  "run_prettier": true,
+  "include": [
+    ".",
+    ".git",
+    ".next",
+    ".playwright-mcp",
+    "app",
+    "assets",
+    "components",
+    "hooks",
+    "lib",
+    "public",
+    "styles"
+  ],
+  "web_server_url": "http://localhost:3000",
+  "editor": "url:cursor://file/%FILENAME:%LINE:%COLUMN",
+  "run": "npm run dev",
+  "tailwind": true
+}
