@@ -32,14 +32,25 @@ export function HeroSection() {
               </div>
             </div>
 
+            {/* Logo */}
+            <div className="flex justify-center lg:justify-start mb-4">
+              <img
+                src="/logo.png"
+                alt="Trading Pride Logo"
+                className={`w-40 h-40 sm:w-44 sm:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52 object-contain transition-all duration-700 ${
+                  isVisible ? "animate-fade-in-down" : "opacity-0"
+                }`}
+              />
+            </div>
+
             <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-balance transition-all duration-700 animation-delay-100 ${
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-[0.9] text-balance transition-all duration-700 animation-delay-100 uppercase tracking-tight ${
                 isVisible ? "animate-fade-in-up" : "opacity-0"
               }`}
             >
-              Learn the Market with
-              <span className="text-primary relative block bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent font-semibold">
-                Discipline, Strategy & Pride
+              Leave the herd, Join the
+              <span className="text-primary relative block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent font-black uppercase tracking-tight">
+                Pride 
               </span>
             </h1>
 
