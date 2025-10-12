@@ -19,40 +19,88 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between min-h-[85vh] gap-8 lg:gap-16">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left space-y-4 sm:space-y-6 lg:space-y-8 flex flex-col">
-            <div className="flex justify-center lg:justify-start">
-              <div
-                className={`inline-flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-[10px] sm:text-xs font-semibold text-primary shadow-lg transition-all duration-700 ${
-                  isVisible ? "animate-fade-in-down" : "opacity-0"
-                }`}
-              >
-                <Award className="w-3 h-3" />
-                <span className="whitespace-nowrap">
-                  Featured on CNBC Awaaz, Bloomberg & ET Now
-                </span>
+            {/* Mobile Layout: Logo and Text side by side */}
+            <div className="lg:hidden w-full space-y-4">
+              {/* Featured Badge for Mobile */}
+              <div className="flex justify-center">
+                <div
+                  className={`inline-flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-[10px] sm:text-xs font-semibold text-primary shadow-lg transition-all duration-700 ${
+                    isVisible ? "animate-fade-in-down" : "opacity-0"
+                  }`}
+                >
+                  <Award className="w-3 h-3" />
+                  <span className="whitespace-nowrap">
+                    Featured on CNBC Awaaz, Bloomberg & ET Now
+                  </span>
+                </div>
+              </div>
+
+              {/* Logo and Text side by side */}
+              <div className="flex flex-row items-center gap-4 w-full">
+                {/* Logo - Left side on mobile */}
+                <div className="flex-1 flex justify-center">
+                  <img
+                    src="/logo.png"
+                    alt="Trading Pride Logo"
+                    className={`w-48 h-48 object-contain transition-all duration-700 ${
+                      isVisible ? "animate-fade-in-down" : "opacity-0"
+                    }`}
+                  />
+                </div>
+
+                {/* Text - Right side on mobile */}
+                <div className="flex-1">
+                  <h1
+                    className={`text-2xl font-black leading-[1.1] text-balance transition-all duration-700 animation-delay-100 uppercase tracking-tight ${
+                      isVisible ? "animate-fade-in-up" : "opacity-0"
+                    }`}
+                  >
+                    Leave the herd, Join the
+                    <span className="text-primary relative block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent font-black uppercase tracking-tight">
+                      Pride
+                    </span>
+                  </h1>
+                </div>
               </div>
             </div>
 
-            {/* Logo */}
-            <div className="flex justify-center lg:justify-start mb-4">
-              <img
-                src="/logo.png"
-                alt="Trading Pride Logo"
-                className={`w-40 h-40 sm:w-44 sm:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52 object-contain transition-all duration-700 ${
-                  isVisible ? "animate-fade-in-down" : "opacity-0"
-                }`}
-              />
-            </div>
+            {/* Desktop Layout: Original structure */}
+            <div className="hidden lg:flex flex-col space-y-4 sm:space-y-6 lg:space-y-8">
+              <div className="flex justify-center lg:justify-start">
+                <div
+                  className={`inline-flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-[10px] sm:text-xs font-semibold text-primary shadow-lg transition-all duration-700 ${
+                    isVisible ? "animate-fade-in-down" : "opacity-0"
+                  }`}
+                >
+                  <Award className="w-3 h-3" />
+                  <span className="whitespace-nowrap">
+                    Featured on CNBC Awaaz, Bloomberg & ET Now
+                  </span>
+                </div>
+              </div>
 
-            <h1
-              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-[0.9] text-balance transition-all duration-700 animation-delay-100 uppercase tracking-tight ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
-              }`}
-            >
-              Leave the herd, Join the
-              <span className="text-primary relative block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent font-black uppercase tracking-tight">
-                Pride 
-              </span>
-            </h1>
+              {/* Logo */}
+              <div className="flex justify-center lg:justify-start mb-4">
+                <img
+                  src="/logo.png"
+                  alt="Trading Pride Logo"
+                  className={`w-40 h-40 sm:w-44 sm:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52 object-contain transition-all duration-700 ${
+                    isVisible ? "animate-fade-in-down" : "opacity-0"
+                  }`}
+                />
+              </div>
+
+              <h1
+                className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-[0.9] text-balance transition-all duration-700 animation-delay-100 uppercase tracking-tight ${
+                  isVisible ? "animate-fade-in-up" : "opacity-0"
+                }`}
+              >
+                Leave the herd, Join the
+                <span className="text-primary relative block bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent font-black uppercase tracking-tight">
+                  Pride
+                </span>
+              </h1>
+            </div>
 
             <p
               className={`text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty max-w-2xl mx-auto lg:mx-0 transition-all duration-700 animation-delay-200 ${
