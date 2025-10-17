@@ -44,7 +44,7 @@ export function Footer() {
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
               <img
-                src="/logo.png"
+                src="/BlueLogo.png"
                 alt="Trading Pride Logo"
                 width={32}
                 height={32}

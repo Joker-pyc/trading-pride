@@ -40,7 +40,7 @@ export function HeroSection() {
                 {/* Logo - Left side on mobile */}
                 <div className="flex-1 flex justify-center">
                   <img
-                    src="/logo.png"
+                    src="/BlueLogo.png"
                     alt="Trading Pride Logo"
                     className={`w-48 h-48 object-contain transition-all duration-700 ${
                       isVisible ? "animate-fade-in-down" : "opacity-0"
@@ -82,7 +82,7 @@ export function HeroSection() {
               {/* Logo */}
               <div className="flex justify-center lg:justify-start mb-4">
                 <img
-                  src="/logo.png"
+                  src="/BlueLogo.png"
                   alt="Trading Pride Logo"
                   className={`w-40 h-40 sm:w-44 sm:h-44 lg:w-48 lg:h-48 xl:w-52 xl:h-52 object-contain transition-all duration-700 ${
                     isVisible ? "animate-fade-in-down" : "opacity-0"

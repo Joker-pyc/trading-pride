@@ -52,7 +52,7 @@ export function Navbar() {
               className="flex items-center gap-2 sm:gap-3 group relative"
             >
               <img
-                src="/logo.png"
+                src="/BlueLogo.png"
                 alt="Trading Pride Logo"
                 width={32}
                 height={32}
